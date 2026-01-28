@@ -12,7 +12,6 @@
       --red: #c62828;
       --blue: #1e3a8a;
       --dark: #1f2937;
-      --gray: #6b7280;
     }
 
     * {
@@ -27,7 +26,7 @@
       color: var(--dark);
     }
 
-    /* TOP BUTTON */
+    /* BOTÓN SUPERIOR */
     .top-btn {
       position: fixed;
       top: 20px;
@@ -68,23 +67,24 @@
       font-size: 1.8rem;
       font-weight: 600;
       margin: 20px 0;
-      transition: all 2s ease;
+      transition: all 1s ease;
     }
 
     .hero-img img {
       width: 100%;
       max-width: 380px;
-      box-shadow: 0 25px 50px rgba(0,0,0,.2);
-      transition: all 2s ease;
+      border-radius: 22px;
+      box-shadow: 0 25px 50px rgba(0,0,0,.25);
+      transition: all 1s ease;
     }
 
-    /* ANIMATION */
+    /* ANIMACIÓN */
     .fade {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(25px);
     }
 
-    /* SECTIONS */
+    /* SECCIONES */
     .section {
       padding: 90px 10%;
     }
@@ -127,7 +127,7 @@
       padding: 30px;
     }
 
-    /* MODAL */
+    /* MODAL INICIAL */
     .overlay {
       position: fixed;
       inset: 0;
@@ -147,6 +147,7 @@
     .modal img {
       width: 260px;
       margin-bottom: 30px;
+      border-radius: 18px;
     }
 
     .modal button {
@@ -194,14 +195,14 @@
 
   <button class="top-btn" onclick="toggleModel()">Cambiar modelo</button>
 
-  <!-- MODAL SOLO AL INICIO -->
+  <!-- MODAL SOLO AL ENTRAR -->
   <div class="overlay" id="welcome">
     <div class="modal">
-      <img src="Atelier_Du_Success.jpg" alt="Atelier Du Succéss">
+      <img src="Atelier_Du_Success.jpeg" alt="Atelier Du Succéss">
       <h2>Bienvenidos</h2>
       <p>¿En qué modelo te encuentras interesado?</p>
-      <button onclick="selectModel('saturno')">Lumière Saturno</button>
-      <button onclick="selectModel('loto')">Lumière Flor de Loto</button>
+      <button onclick="selectModel('saturno')">Saturno</button>
+      <button onclick="selectModel('loto')">Flor de Loto</button>
     </div>
   </div>
 
@@ -211,8 +212,9 @@
       <h1>Lumière <span id="modelTitle">Saturno</span></h1>
       <div class="price-box" id="price">S/ 290</div>
       <p id="description">
-        Centro de control inteligente con estética francesa, diseñado para integrar
-        tecnología, elegancia y funcionalidad en un solo dispositivo.
+        Centro de control inteligente con diseño sofisticado,
+        pensado para hogares modernos que valoran estética,
+        tecnología y funcionalidad.
       </p>
     </div>
     <div class="hero-img">
@@ -220,18 +222,18 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- CARACTERÍSTICAS -->
   <section class="section">
     <h2>Características</h2>
     <div class="grid">
-      <div class="card"><h3>Compatibilidad amplia</h3><p>Integración con múltiples ecosistemas inteligentes.</p></div>
-      <div class="card"><h3>Automatización inteligente</h3><p>Rutinas adaptativas según tu estilo de vida.</p></div>
-      <div class="card"><h3>Control por voz</h3><p>Compatibilidad con asistentes virtuales.</p></div>
-      <div class="card"><h3>Seguridad y privacidad</h3><p>Protección avanzada de datos.</p></div>
+      <div class="card"><h3>Compatibilidad amplia</h3><p>Se integra con múltiples ecosistemas inteligentes.</p></div>
+      <div class="card"><h3>Automatización inteligente</h3><p>Rutinas que se adaptan a tu día a día.</p></div>
+      <div class="card"><h3>Control por voz</h3><p>Gestión sencilla con asistentes virtuales.</p></div>
+      <div class="card"><h3>Seguridad y privacidad</h3><p>Protección avanzada de datos personales.</p></div>
     </div>
   </section>
 
-  <!-- SPECS -->
+  <!-- ESPECIFICACIONES -->
   <section class="section">
     <h2>Especificaciones técnicas</h2>
     <div class="grid">
@@ -259,7 +261,7 @@
         modelTitle.classList.remove('fade');
         price.classList.remove('fade');
         heroImg.classList.remove('fade');
-      }, 2000);
+      }, 1000);
     }
 
     function selectModel(model) {
@@ -286,7 +288,7 @@
           price.innerText = 'S/ 230';
           heroImg.src = 'flor_de_loto.jpeg';
         }
-      }, 1000);
+      }, 500);
     }
   </script>
 
