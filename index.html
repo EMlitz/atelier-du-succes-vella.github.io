@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atelier Du Succéss</title>
 
+  <!-- ICONOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     :root {
       --beige: #f5f1ea;
@@ -103,6 +106,7 @@
       background: var(--beige);
       padding: 35px;
       text-align: center;
+      border-radius: 18px;
     }
 
     .card h3 {
@@ -185,7 +189,7 @@
       cursor: pointer;
     }
 
-    /* WHATSAPP */
+    /* WHATSAPP (NO TOCADO) */
     .whatsapp {
       position: fixed;
       bottom: 24px;
@@ -206,10 +210,52 @@
       width: 26px;
     }
 
+    /* REDES SOCIALES */
+    .socials-fixed {
+      position: fixed;
+      top: 50%;
+      right: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 1800;
+    }
+
+    .socials-fixed a {
+      width: 44px;
+      height: 44px;
+      background: var(--beige);
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all .3s ease;
+    }
+
+    .socials-fixed a:hover {
+      background: var(--red);
+      color: var(--white);
+      transform: scale(1.15);
+    }
+
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .socials-fixed {
+        flex-direction: row;
+        bottom: 90px;
+        top: auto;
+        right: 50%;
+        transform: translateX(50%);
       }
     }
   </style>
@@ -219,13 +265,11 @@
 
 <button class="top-btn" id="toggleBtn" onclick="toggleModel()">Cambiar modelo</button>
 
-<!-- MODAL INICIAL -->
+<!-- MODAL -->
 <div class="overlay" id="welcome">
   <div class="modal">
     <h2 class="modal-title">Bienvenidos</h2>
-
-    <img src="Atelier_Du_Success.png" alt="Atelier Du Succéss">
-
+    <img src="Atelier_Du_Success.png">
     <p class="modal-text">¿En qué modelo te encuentras interesado?</p>
 
     <div class="modal-buttons">
@@ -239,11 +283,10 @@
 <section class="hero">
   <div>
     <h1>Lumière <span id="modelTitle">Saturno</span></h1>
-    <div class="price-box" id="price">S/ 290</div>
-    <p id="description">
-      Centro de control inteligente diseñado para hogares modernos.
-      Combina elegancia francesa con tecnología avanzada para una
-      experiencia fluida, segura y automatizada.
+    <div class="price-box" id="price">S/. 350</div>
+    <p>
+      Centro de control inteligente diseñado para hogares modernos,
+      combinando elegancia francesa con tecnología avanzada.
     </p>
   </div>
   <div class="hero-img">
@@ -265,18 +308,18 @@
     </div>
     <div class="card">
       <h3>Control por voz</h3>
-      <p>Interacción sencilla mediante asistentes virtuales.</p>
+      <p>Interacción sencilla mediante asistentes virtuales como Alexa y Google Home.</p>
     </div>
     <div class="card">
       <h3>Seguridad y privacidad</h3>
-      <p>Protección avanzada de datos con protocolos cifrados.</p>
+      <p>Protección avanzada de datos con protocolos cifrados y autenticación segura.</p>
     </div>
   </div>
 </section>
 
-<!-- ESPECIFICACIONES -->
+<!-- ESPECIFICACIONES TÉCNICAS -->
 <section class="section">
-  <h2>Especificaciones técnicas</h2>
+  <h2>Especificaciones Técnicas</h2>
   <div class="grid">
     <div class="card">
       <h3>Conectividad</h3>
@@ -294,11 +337,33 @@
         - Consumo 5V / 2A
       </p>
     </div>
+    <div class="card">
+      <h3>Materiales</h3>
+      <p>
+        - Aluminio anodizado<br>
+        - Vidrio templado
+      </p>
+    </div>
+    <div class="card">
+      <h3>Voltaje</h3>
+      <p>
+        - 110V – 220V / 50-60Hz
+      </p>
+    </div>
   </div>
 </section>
 
-<footer>© 2026 Atelier Du Succéss - EMlitz"</footer>
+<!-- REDES -->
+<div class="socials-fixed">
+  <a href="https://www.tiktok.com/@atelierdusuccess" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com/atelierdusuccess/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.facebook.com/atelierdusuccess" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com/@atelierdusuccess" target="_blank"><i class="fab fa-youtube"></i></a>
+</div>
 
+<footer>© 2026 Atelier Du Succéss · EMlitz</footer>
+
+<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   Contáctanos
@@ -337,4 +402,3 @@
 
 </body>
 </html>
-
