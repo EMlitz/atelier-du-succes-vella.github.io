@@ -72,7 +72,6 @@
       font-size: 1.8rem;
       font-weight: 600;
       margin: 20px 0;
-      transition: all 0.5s ease;
     }
 
     .hero-img img {
@@ -80,7 +79,6 @@
       max-width: 380px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,.25);
-      transition: opacity 0.5s ease;
     }
 
     /* SECCIONES */
@@ -104,7 +102,6 @@
     .card {
       background: var(--beige);
       padding: 35px;
-      border-radius: 0;
       text-align: center;
     }
 
@@ -126,7 +123,7 @@
       padding: 30px;
     }
 
-    /* MODAL INICIAL */
+    /* MODAL */
     .overlay {
       position: fixed;
       inset: 0;
@@ -145,18 +142,47 @@
 
     .modal img {
       width: 260px;
-      margin-bottom: 30px;
+      margin: 20px 0;
     }
 
-    .modal button {
-      width: 220px;
-      margin: 10px;
-      padding: 16px;
-      border-radius: 0;
-      border: 1px solid #ccc;
-      background: var(--white);
-      cursor: pointer;
+    .modal-title {
+      font-size: 2rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .modal-text {
+      font-size: 1.1rem;
+      margin: 10px 0 30px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-saturno {
+      background: var(--red);
+      color: var(--beige);
+      border: none;
+      border-radius: 999px;
+      padding: 16px 36px;
       font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-loto {
+      background: var(--blue);
+      color: var(--beige);
+      border: none;
+      border-radius: 999px;
+      padding: 16px 36px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
     }
 
     /* WHATSAPP */
@@ -196,11 +222,16 @@
 <!-- MODAL INICIAL -->
 <div class="overlay" id="welcome">
   <div class="modal">
+    <h2 class="modal-title">Bienvenidos</h2>
+
     <img src="Atelier_Du_Success.jpeg" alt="Atelier Du Succéss">
-    <h2>Bienvenidos</h2>
-    <p>¿En qué modelo te encuentras interesado?</p>
-    <button onclick="selectModel('saturno')">Saturno</button>
-    <button onclick="selectModel('loto')">Flor de Loto</button>
+
+    <p class="modal-text">¿En qué modelo te encuentras interesado?</p>
+
+    <div class="modal-buttons">
+      <button class="btn-saturno" onclick="selectModel('saturno')">Saturno</button>
+      <button class="btn-loto" onclick="selectModel('loto')">Flor de Loto</button>
+    </div>
   </div>
 </div>
 
@@ -249,11 +280,19 @@
   <div class="grid">
     <div class="card">
       <h3>Conectividad</h3>
-      <p>Wi-Fi 6<br>Bluetooth 5.2<br>Zigbee<br>Z-Wave</p>
+      <p>
+        Wi-Fi 6<br>
+        Bluetooth 5.2<br>
+        Zigbee<br>
+        Z-Wave
+      </p>
     </div>
     <div class="card">
       <h3>Fuente de alimentación</h3>
-      <p>Adaptador incluido<br>Consumo 5V / 2A</p>
+      <p>
+        Adaptador incluido<br>
+        Consumo 5V / 2A
+      </p>
     </div>
   </div>
 </section>
@@ -277,7 +316,6 @@
   function toggleModel() {
     const btn = document.getElementById('toggleBtn');
     btn.classList.add('animate');
-
     setTimeout(() => btn.classList.remove('animate'), 1000);
 
     currentModel = currentModel === 'saturno' ? 'loto' : 'saturno';
@@ -287,11 +325,11 @@
   function applyModel() {
     if (currentModel === 'saturno') {
       modelTitle.innerText = 'Saturno';
-      price.innerText = 'S/. 290';
+      price.innerText = 'S/ 290';
       heroImg.src = 'saturno.jpeg';
     } else {
       modelTitle.innerText = 'Flor de Loto';
-      price.innerText = 'S/. 230';
+      price.innerText = 'S/ 230';
       heroImg.src = 'flor_de_loto.jpeg';
     }
   }
