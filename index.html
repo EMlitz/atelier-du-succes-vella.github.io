@@ -30,6 +30,7 @@
     h2 {
       color:var(--blue);
       margin-bottom:20px;
+      text-align:center;
     }
 
     /* ---------- MODAL ---------- */
@@ -60,6 +61,7 @@
       gap:20px;
       justify-content:center;
       flex-wrap:wrap;
+      margin-top:20px;
     }
 
     .btn {
@@ -74,10 +76,10 @@
     .btn.red { background:var(--red); }
     .btn.blue { background:var(--blue); }
 
-    /* ---------- REDES ---------- */
+    /* ---------- REDES EN MODAL ---------- */
     .modal-socials {
       position:absolute;
-      right:-140px;
+      right:-150px;
       top:50%;
       transform:translateY(-50%);
       display:flex;
@@ -178,6 +180,38 @@
       text-align:center;
       padding:30px;
     }
+
+    /* ---------- WHATSAPP FLOTANTE ---------- */
+    .whatsapp-float {
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      background:#25D366;
+      color:white;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 10px 25px rgba(0,0,0,.25);
+      z-index:4000;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+
+    .whatsapp-float img {
+      width:26px;
+    }
+
+    .whatsapp-float:hover {
+      transform:translateY(-4px);
+      box-shadow:0 14px 30px rgba(0,0,0,.35);
+    }
+
+    @media(max-width:768px){
+      .whatsapp-float span { display:none; }
+    }
   </style>
 </head>
 
@@ -187,7 +221,7 @@
 <div class="overlay" id="welcome">
   <div class="modal">
     <h2>Bienvenidos</h2>
-    <img src="Atelier_Du_Success.png" alt="">
+    <img src="Atelier_Du_Success.png" alt="Atelier Du Succéss">
     <p>¿En qué modelo estás interesado?</p>
 
     <div class="modal-buttons">
@@ -197,16 +231,16 @@
 
     <div class="modal-socials">
       <a class="social-item" href="https://www.tiktok.com/@atelierdusuccess" target="_blank">
-        <img src="tiktok.png"><span>TikTok</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/TikTok_logo.svg"><span>TikTok</span>
       </a>
       <a class="social-item" href="https://www.youtube.com/@atelierdusuccess" target="_blank">
-        <img src="youtube.png"><span>YouTube</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"><span>YouTube</span>
       </a>
       <a class="social-item" href="https://www.facebook.com/atelierdusuccess" target="_blank">
-        <img src="facebook.png"><span>Facebook</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg"><span>Facebook</span>
       </a>
       <a class="social-item" href="https://www.instagram.com/atelierdusuccess/" target="_blank">
-        <img src="instagram.png"><span>Instagram</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"><span>Instagram</span>
       </a>
     </div>
   </div>
@@ -270,6 +304,12 @@
 <footer>
   © 2026 Atelier Du Succéss · EMlitz
 </footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/51933548349" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  <span>Contáctanos</span>
+</a>
 
 <script>
   function selectModel(model){
