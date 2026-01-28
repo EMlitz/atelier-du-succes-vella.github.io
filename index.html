@@ -20,7 +20,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Inter, system-ui;
+      font-family: "High Tower Text", "Times New Roman", serif;
     }
 
     body {
@@ -69,7 +69,6 @@
     .hero-img img {
       width: 100%;
       max-width: 380px;
-      border-radius: 24px;
       box-shadow: 0 25px 50px rgba(0,0,0,.2);
     }
 
@@ -94,19 +93,22 @@
     .card {
       background: var(--beige);
       padding: 30px;
-      border-radius: 20px;
+      border-radius: 0;
+      text-align: center;
     }
 
     .card h3 {
       color: var(--red);
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      text-align: center;
     }
 
     .card p {
       color: var(--dark);
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
     }
 
     /* FOOTER */
@@ -155,13 +157,14 @@
       width: 220px;
       margin: 10px;
       padding: 16px;
-      border-radius: 6px;
+      border-radius: 0;
       border: 1px solid #2a2a2e;
       background: #111113;
       color: var(--white);
       cursor: pointer;
       font-size: 1rem;
       transition: .3s;
+      font-family: "High Tower Text", serif;
     }
 
     .modal button:hover {
@@ -202,10 +205,8 @@
 
 <body>
 
-  <!-- CHANGE MODEL BUTTON -->
   <button class="top-btn" onclick="openModal()">Cambiar modelo</button>
 
-  <!-- MODAL -->
   <div class="overlay" id="welcome">
     <div class="modal">
       <img src="Atelier_Du_Success.jpg" alt="Atelier Du Succéss">
@@ -216,7 +217,6 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="hero">
     <div>
       <h1>Lumière <span id="modelTitle">Saturno</span></h1>
@@ -228,7 +228,6 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="section">
     <h2>Características</h2>
     <div class="grid">
@@ -251,7 +250,6 @@
     </div>
   </section>
 
-  <!-- SPECS -->
   <section class="section">
     <h2>Especificaciones técnicas</h2>
     <div class="grid">
@@ -270,7 +268,6 @@
     © 2026 Atelier Du Succéss - EMlitz
   </footer>
 
-  <!-- WHATSAPP -->
   <a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
     Contáctanos
@@ -285,11 +282,11 @@
       document.getElementById('welcome').style.display = 'none';
 
       if (model === 'saturno') {
-        modelTitle.innerText = 'Lumière Saturno';
+        modelTitle.innerText = 'Saturno';
         price.innerText = 'S/ 290';
         heroImg.src = 'saturno.jpeg';
       } else {
-        modelTitle.innerText = 'Lumière Flor de Loto';
+        modelTitle.innerText = 'Flor de Loto';
         price.innerText = 'S/ 230';
         heroImg.src = 'flor_de_loto.jpeg';
       }
