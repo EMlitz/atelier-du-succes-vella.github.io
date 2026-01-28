@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atelier Du Succéss</title>
+  <title>Vella | Atelier Du Succéss</title>
 
   <style>
     :root {
@@ -19,12 +19,26 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Inter, system-ui, -apple-system;
+      font-family: Inter, system-ui;
     }
 
     body {
       background: var(--white);
       color: var(--dark);
+    }
+
+    /* TOP BUTTON */
+    .top-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: var(--blue);
+      color: var(--white);
+      cursor: pointer;
+      z-index: 1500;
     }
 
     /* HERO */
@@ -80,11 +94,12 @@
       background: var(--beige);
       padding: 30px;
       border-radius: 20px;
+      text-align: center;
     }
 
     .card h3 {
       color: var(--red);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     /* FOOTER */
@@ -95,12 +110,12 @@
       padding: 30px;
     }
 
-    /* WELCOME MODAL */
+    /* FULLSCREEN MODAL */
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.6);
-      display: none;
+      background: rgba(0,0,0,.75);
+      display: flex;
       align-items: center;
       justify-content: center;
       z-index: 3000;
@@ -108,9 +123,9 @@
 
     .modal {
       background: var(--white);
-      padding: 35px;
-      border-radius: 26px;
-      max-width: 420px;
+      padding: 40px;
+      border-radius: 30px;
+      max-width: 480px;
       width: 90%;
       text-align: center;
       animation: scale .4s ease;
@@ -118,8 +133,8 @@
 
     .modal img {
       width: 100%;
-      border-radius: 18px;
-      margin-bottom: 20px;
+      border-radius: 20px;
+      margin-bottom: 25px;
     }
 
     .modal h2 {
@@ -129,12 +144,12 @@
 
     .modal p {
       color: var(--gray);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .modal button {
-      margin: 8px;
-      padding: 12px 22px;
+      margin: 10px;
+      padding: 14px 26px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -186,7 +201,10 @@
 
 <body>
 
-  <!-- WELCOME MODAL -->
+  <!-- CHANGE MODEL BUTTON -->
+  <button class="top-btn" onclick="openModal()">Cambiar modelo</button>
+
+  <!-- MODAL -->
   <div class="overlay" id="welcome">
     <div class="modal">
       <img src="Atelier_Du_Success.jpeg" alt="Atelier Du Succéss">
@@ -202,28 +220,39 @@
     <div>
       <h1>Vella <span id="modelTitle">Saturno</span></h1>
       <div class="price" id="price">S/ 290</div>
-      <p id="desc">
-        Diseño potente enfocado en hogares inteligentes avanzados.
-      </p>
+      <p>Centro de control inteligente con diseño francés.</p>
     </div>
     <div class="hero-img">
-      <img id="heroImg" src="saturno.jpeg" alt="Vella">
+      <img id="heroImg" src="saturno.jpeg">
     </div>
   </section>
 
   <!-- FEATURES -->
   <section class="section">
     <h2>Características</h2>
-    <div class="grid" id="features"></div>
+    <div class="grid">
+      <div class="card"><h3>Compatibilidad amplia</h3></div>
+      <div class="card"><h3>Automatización inteligente</h3></div>
+      <div class="card"><h3>Control por voz</h3></div>
+      <div class="card"><h3>Seguridad y privacidad</h3></div>
+    </div>
   </section>
 
   <!-- SPECS -->
   <section class="section">
-    <h2>Especificaciones</h2>
-    <div class="grid" id="specs"></div>
+    <h2>Especificaciones técnicas</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Conectividad</h3>
+        <p>Wi-Fi 6 · Bluetooth 5.2 · Zigbee · Z-Wave</p>
+      </div>
+      <div class="card">
+        <h3>Fuente de alimentación</h3>
+        <p>Adaptador incluido<br>Consumo 5V / 2A</p>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2026 Atelier Du Succéss - EMlitz
   </footer>
@@ -234,64 +263,23 @@
   </a>
 
   <script>
-    const data = {
-      saturno: {
-        price: 'S/ 290',
-        img: 'saturno.jpeg',
-        desc: 'Diseño potente enfocado en hogares inteligentes avanzados.',
-        features: [
-          'Automatización predictiva',
-          'Compatibilidad profesional',
-          'Control por voz premium'
-        ],
-        specs: [
-          'Wi-Fi 6 + Z-Wave',
-          'Procesador de alto rendimiento',
-          'Consumo 5V / 2A'
-        ]
-      },
-      loto: {
-        price: 'S/ 230',
-        img: 'flor_de_loto.jpeg',
-        desc: 'Diseño elegante y minimalista para hogares modernos.',
-        features: [
-          'Interfaz simplificada',
-          'Modo ahorro energético',
-          'Automatización básica'
-        ],
-        specs: [
-          'Wi-Fi 6 + Zigbee',
-          'Procesador eficiente',
-          'Consumo reducido 5V / 1.5A'
-        ]
-      }
-    };
+    function openModal() {
+      document.getElementById('welcome').style.display = 'flex';
+    }
 
     function selectModel(model) {
       document.getElementById('welcome').style.display = 'none';
-      document.getElementById('modelTitle').innerText =
-        model === 'saturno' ? 'Saturno' : 'Flor de Loto';
-      document.getElementById('price').innerText = data[model].price;
-      document.getElementById('desc').innerText = data[model].desc;
-      document.getElementById('heroImg').src = data[model].img;
 
-      document.getElementById('features').innerHTML =
-        data[model].features.map(f =>
-          `<div class="card"><h3>${f}</h3></div>`
-        ).join('');
-
-      document.getElementById('specs').innerHTML =
-        data[model].specs.map(s =>
-          `<div class="card"><h3>${s}</h3></div>`
-        ).join('');
+      if (model === 'saturno') {
+        document.getElementById('modelTitle').innerText = 'Saturno';
+        document.getElementById('price').innerText = 'S/ 290';
+        document.getElementById('heroImg').src = 'saturno.jpeg';
+      } else {
+        document.getElementById('modelTitle').innerText = 'Flor de Loto';
+        document.getElementById('price').innerText = 'S/ 230';
+        document.getElementById('heroImg').src = 'flor_de_loto.jpeg';
+      }
     }
-
-    setTimeout(() => {
-      document.getElementById('welcome').style.display = 'flex';
-    }, 2000);
-
-    // Default
-    selectModel('saturno');
   </script>
 
 </body>
