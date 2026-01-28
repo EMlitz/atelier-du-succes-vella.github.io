@@ -26,7 +26,6 @@
       color: var(--dark);
     }
 
-    /* BOTÓN SUPERIOR */
     .top-btn {
       position: fixed;
       top: 20px;
@@ -40,7 +39,6 @@
       z-index: 1500;
     }
 
-    /* HERO */
     .hero {
       padding: 80px 10%;
       display: grid;
@@ -78,13 +76,11 @@
       transition: all 1s ease;
     }
 
-    /* ANIMACIÓN */
     .fade {
       opacity: 0;
       transform: translateY(25px);
     }
 
-    /* SECCIONES */
     .section {
       padding: 90px 10%;
     }
@@ -105,21 +101,9 @@
     .card {
       background: var(--beige);
       padding: 30px;
-      border-radius: 0;
       text-align: center;
     }
 
-    .card h3 {
-      color: var(--red);
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* FOOTER */
     footer {
       background: var(--dark);
       color: var(--white);
@@ -127,7 +111,6 @@
       padding: 30px;
     }
 
-    /* MODAL INICIAL */
     .overlay {
       position: fixed;
       inset: 0;
@@ -161,7 +144,6 @@
       font-size: 1rem;
     }
 
-    /* WHATSAPP */
     .whatsapp {
       position: fixed;
       bottom: 24px;
@@ -193,104 +175,143 @@
 
 <body>
 
-  <button class="top-btn" onclick="toggleModel()">Cambiar modelo</button>
+<button class="top-btn" onclick="toggleModel()">Cambiar modelo</button>
 
-  <!-- MODAL SOLO AL ENTRAR -->
-  <div class="overlay" id="welcome">
-    <div class="modal">
-      <img src="Atelier_Du_Success.jpeg" alt="Atelier Du Succéss">
-      <h2>Bienvenidos</h2>
-      <p>¿En qué modelo te encuentras interesado?</p>
-      <button onclick="selectModel('saturno')">Saturno</button>
-      <button onclick="selectModel('loto')">Flor de Loto</button>
-    </div>
+<!-- MODAL -->
+<div class="overlay" id="welcome">
+  <div class="modal">
+    <img src="Atelier_Du_Success.jpeg">
+    <h2>Bienvenidos</h2>
+    <p>¿En qué modelo te encuentras interesado?</p>
+    <button onclick="selectModel('saturno', this)">Saturno</button>
+    <button onclick="selectModel('loto', this)">Flor de Loto</button>
   </div>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>Lumière <span id="modelTitle">Saturno</span></h1>
-      <div class="price-box" id="price">S/ 290</div>
-      <p id="description">
-        Centro de control inteligente con diseño sofisticado,
-        pensado para hogares modernos que valoran estética,
-        tecnología y funcionalidad.
-      </p>
-    </div>
-    <div class="hero-img">
-      <img id="heroImg" src="saturno.jpeg">
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Lumière <span id="modelTitle">Saturno</span></h1>
+    <div class="price-box" id="price">S/ 290</div>
+    <p id="description"></p>
+  </div>
+  <div class="hero-img">
+    <img id="heroImg" src="saturno.jpeg">
+  </div>
+</section>
 
-  <!-- CARACTERÍSTICAS -->
-  <section class="section">
-    <h2>Características</h2>
-    <div class="grid">
-      <div class="card"><h3>Compatibilidad amplia</h3><p>Se integra con múltiples ecosistemas inteligentes.</p></div>
-      <div class="card"><h3>Automatización inteligente</h3><p>Rutinas que se adaptan a tu día a día.</p></div>
-      <div class="card"><h3>Control por voz</h3><p>Gestión sencilla con asistentes virtuales.</p></div>
-      <div class="card"><h3>Seguridad y privacidad</h3><p>Protección avanzada de datos personales.</p></div>
-    </div>
-  </section>
+<!-- CARACTERÍSTICAS -->
+<section class="section">
+  <h2>Características</h2>
+  <div class="grid">
+    <div class="card"><h3 id="c1t"></h3><p id="c1"></p></div>
+    <div class="card"><h3 id="c2t"></h3><p id="c2"></p></div>
+    <div class="card"><h3 id="c3t"></h3><p id="c3"></p></div>
+    <div class="card"><h3 id="c4t"></h3><p id="c4"></p></div>
+  </div>
+</section>
 
-  <!-- ESPECIFICACIONES -->
-  <section class="section">
-    <h2>Especificaciones técnicas</h2>
-    <div class="grid">
-      <div class="card"><h3>Conectividad</h3><p>Wi-Fi 6<br>Bluetooth 5.2<br>Zigbee<br>Z-Wave</p></div>
-      <div class="card"><h3>Fuente de alimentación</h3><p>Adaptador incluido<br>5V / 2A</p></div>
-    </div>
-  </section>
+<!-- ESPECIFICACIONES -->
+<section class="section">
+  <h2>Especificaciones técnicas</h2>
+  <div class="grid">
+    <div class="card"><h3 id="s1t"></h3><p id="s1"></p></div>
+    <div class="card"><h3 id="s2t"></h3><p id="s2"></p></div>
+  </div>
+</section>
 
-  <footer>© 2026 Atelier Du Succéss - EMlitz</footer>
+<footer>© 2026 Atelier Du Succéss - EMlitz</footer>
 
-  <a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-    Contáctanos
-  </a>
+<a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  Contáctanos
+</a>
 
-  <script>
-    let currentModel = 'saturno';
+<script>
+  let currentModel = 'saturno';
 
-    function animate() {
-      modelTitle.classList.add('fade');
-      price.classList.add('fade');
-      heroImg.classList.add('fade');
-
-      setTimeout(() => {
-        modelTitle.classList.remove('fade');
-        price.classList.remove('fade');
-        heroImg.classList.remove('fade');
-      }, 1000);
+  const data = {
+    saturno: {
+      price: 'S/ 290',
+      img: 'saturno.jpeg',
+      desc: 'Centro de control inteligente con presencia sólida y elegante, ideal para espacios contemporáneos.',
+      features: [
+        ['Compatibilidad amplia','Integra dispositivos de distintas marcas y protocolos.'],
+        ['Automatización avanzada','Escenarios personalizados según horarios y hábitos.'],
+        ['Control por voz','Compatible con asistentes virtuales modernos.'],
+        ['Seguridad reforzada','Gestión local y cifrado de datos.']
+      ],
+      specs: [
+        ['Conectividad','Wi-Fi 6 · Bluetooth 5.2 · Zigbee · Z-Wave'],
+        ['Alimentación','Adaptador incluido · 5V / 2A']
+      ]
+    },
+    loto: {
+      price: 'S/ 230',
+      img: 'flor_de_loto.jpeg',
+      desc: 'Diseño armónico inspirado en la calma y el equilibrio, perfecto para hogares minimalistas.',
+      features: [
+        ['Diseño orgánico','Estética suave que se integra al entorno.'],
+        ['Automatización fluida','Control intuitivo de escenas diarias.'],
+        ['Control por voz','Manejo natural y sin esfuerzo.'],
+        ['Privacidad total','Protección inteligente de información.']
+      ],
+      specs: [
+        ['Conectividad','Wi-Fi 6 · Bluetooth 5.2 · Zigbee · Z-Wave'],
+        ['Alimentación','Adaptador incluido · 5V / 2A']
+      ]
     }
+  };
 
-    function selectModel(model) {
-      document.getElementById('welcome').style.display = 'none';
-      currentModel = model;
-      applyModel();
-    }
+  function animate() {
+    modelTitle.classList.add('fade');
+    price.classList.add('fade');
+    heroImg.classList.add('fade');
+    setTimeout(() => {
+      modelTitle.classList.remove('fade');
+      price.classList.remove('fade');
+      heroImg.classList.remove('fade');
+    }, 1000);
+  }
 
-    function toggleModel() {
-      currentModel = currentModel === 'saturno' ? 'loto' : 'saturno';
-      applyModel();
-    }
+  function selectModel(model, btn) {
+    document.querySelectorAll('.modal button').forEach(b => {
+      b.style.background = '';
+      b.style.color = '';
+    });
 
-    function applyModel() {
-      animate();
+    btn.style.background = model === 'saturno' ? '#c62828' : '#1e3a8a';
+    btn.style.color = '#f5f1ea';
 
-      setTimeout(() => {
-        if (currentModel === 'saturno') {
-          modelTitle.innerText = 'Saturno';
-          price.innerText = 'S/. 339.9';
-          heroImg.src = 'saturno.jpeg';
-        } else {
-          modelTitle.innerText = 'Flor de Loto';
-          price.innerText = 'S/ 359.9';
-          heroImg.src = 'flor_de_loto.jpeg';
-        }
-      }, 500);
-    }
-  </script>
+    setTimeout(() => document.getElementById('welcome').style.display = 'none', 200);
+    currentModel = model;
+    applyModel();
+  }
+
+  function toggleModel() {
+    currentModel = currentModel === 'saturno' ? 'loto' : 'saturno';
+    applyModel();
+  }
+
+  function applyModel() {
+    animate();
+    const m = data[currentModel];
+
+    setTimeout(() => {
+      modelTitle.innerText = currentModel === 'saturno' ? 'Saturno' : 'Flor de Loto';
+      price.innerText = m.price;
+      heroImg.src = m.img;
+      description.innerText = m.desc;
+
+      [c1t,c2t,c3t,c4t].forEach((e,i)=>e.innerText=m.features[i][0]);
+      [c1,c2,c3,c4].forEach((e,i)=>e.innerText=m.features[i][1]);
+      [s1t,s2t].forEach((e,i)=>e.innerText=m.specs[i][0]);
+      [s1,s2].forEach((e,i)=>e.innerText=m.specs[i][1]);
+    }, 500);
+  }
+
+  applyModel();
+</script>
 
 </body>
 </html>
