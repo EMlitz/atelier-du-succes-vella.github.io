@@ -68,20 +68,20 @@
       font-size: 1.8rem;
       font-weight: 600;
       margin: 20px 0;
-      transition: all .4s ease;
+      transition: all 2s ease;
     }
 
     .hero-img img {
       width: 100%;
       max-width: 380px;
       box-shadow: 0 25px 50px rgba(0,0,0,.2);
-      transition: all .5s ease;
+      transition: all 2s ease;
     }
 
-    /* ANIMATION STATES */
+    /* ANIMATION */
     .fade {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
 
     /* SECTIONS */
@@ -192,9 +192,9 @@
 
 <body>
 
-  <button class="top-btn" onclick="openModal()">Cambiar modelo</button>
+  <button class="top-btn" onclick="toggleModel()">Cambiar modelo</button>
 
-  <!-- MODAL -->
+  <!-- MODAL SOLO AL INICIO -->
   <div class="overlay" id="welcome">
     <div class="modal">
       <img src="Atelier_Du_Success.jpg" alt="Atelier Du Succéss">
@@ -235,20 +235,12 @@
   <section class="section">
     <h2>Especificaciones técnicas</h2>
     <div class="grid">
-      <div class="card">
-        <h3>Conectividad</h3>
-        <p>Wi-Fi 6<br>Bluetooth 5.2<br>Zigbee<br>Z-Wave</p>
-      </div>
-      <div class="card">
-        <h3>Fuente de alimentación</h3>
-        <p>Adaptador incluido<br>5V / 2A</p>
-      </div>
+      <div class="card"><h3>Conectividad</h3><p>Wi-Fi 6<br>Bluetooth 5.2<br>Zigbee<br>Z-Wave</p></div>
+      <div class="card"><h3>Fuente de alimentación</h3><p>Adaptador incluido<br>5V / 2A</p></div>
     </div>
   </section>
 
-  <footer>
-    © 2026 Atelier Du Succéss - EMlitz
-  </footer>
+  <footer>© 2026 Atelier Du Succéss - EMlitz</footer>
 
   <a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
@@ -256,11 +248,9 @@
   </a>
 
   <script>
-    function openModal() {
-      document.getElementById('welcome').style.display = 'flex';
-    }
+    let currentModel = 'saturno';
 
-    function animateChange() {
+    function animate() {
       modelTitle.classList.add('fade');
       price.classList.add('fade');
       heroImg.classList.add('fade');
@@ -269,15 +259,25 @@
         modelTitle.classList.remove('fade');
         price.classList.remove('fade');
         heroImg.classList.remove('fade');
-      }, 400);
+      }, 2000);
     }
 
     function selectModel(model) {
       document.getElementById('welcome').style.display = 'none';
-      animateChange();
+      currentModel = model;
+      applyModel();
+    }
+
+    function toggleModel() {
+      currentModel = currentModel === 'saturno' ? 'loto' : 'saturno';
+      applyModel();
+    }
+
+    function applyModel() {
+      animate();
 
       setTimeout(() => {
-        if (model === 'saturno') {
+        if (currentModel === 'saturno') {
           modelTitle.innerText = 'Saturno';
           price.innerText = 'S/ 290';
           heroImg.src = 'saturno.jpeg';
@@ -286,7 +286,7 @@
           price.innerText = 'S/ 230';
           heroImg.src = 'flor_de_loto.jpeg';
         }
-      }, 200);
+      }, 1000);
     }
   </script>
 
