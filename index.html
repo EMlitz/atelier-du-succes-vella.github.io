@@ -94,12 +94,18 @@
       background: var(--beige);
       padding: 30px;
       border-radius: 20px;
-      text-align: center;
     }
 
     .card h3 {
       color: var(--red);
-      font-size: 1.05rem;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: var(--dark);
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     /* FOOTER */
@@ -157,13 +163,8 @@
       font-size: 1rem;
     }
 
-    .sat {
-      background: var(--blue);
-    }
-
-    .loto {
-      background: var(--red);
-    }
+    .sat { background: var(--blue); }
+    .loto { background: var(--red); }
 
     @keyframes scale {
       from { transform: scale(.9); opacity: 0; }
@@ -175,19 +176,21 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      width: 60px;
-      height: 60px;
-      background: #25d366;
-      border-radius: 50%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      background: #25d366;
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
       box-shadow: 0 10px 25px rgba(0,0,0,.3);
       z-index: 2000;
     }
 
     .whatsapp img {
-      width: 32px;
+      width: 26px;
     }
 
     @media (max-width: 900px) {
@@ -207,7 +210,7 @@
   <!-- MODAL -->
   <div class="overlay" id="welcome">
     <div class="modal">
-      <img src="Atelier_Du_Success.jpeg" alt="Atelier Du Succéss">
+      <img src="Atelier_Du_Success.jpeg">
       <h2>Gracias por tu preferencia</h2>
       <p>¿En qué diseño se encuentra interesado?</p>
       <button class="sat" onclick="selectModel('saturno')">Saturno</button>
@@ -220,7 +223,7 @@
     <div>
       <h1>Vella <span id="modelTitle">Saturno</span></h1>
       <div class="price" id="price">S/ 290</div>
-      <p>Centro de control inteligente con diseño francés.</p>
+      <p>Centro de control inteligente con diseño francés, pensado para hogares modernos.</p>
     </div>
     <div class="hero-img">
       <img id="heroImg" src="saturno.jpeg">
@@ -231,10 +234,22 @@
   <section class="section">
     <h2>Características</h2>
     <div class="grid">
-      <div class="card"><h3>Compatibilidad amplia</h3></div>
-      <div class="card"><h3>Automatización inteligente</h3></div>
-      <div class="card"><h3>Control por voz</h3></div>
-      <div class="card"><h3>Seguridad y privacidad</h3></div>
+      <div class="card">
+        <h3>Compatibilidad amplia</h3>
+        <p>Funciona con una gran variedad de dispositivos inteligentes y ecosistemas del hogar.</p>
+      </div>
+      <div class="card">
+        <h3>Automatización inteligente</h3>
+        <p>Crea rutinas automáticas que se adaptan a tus hábitos diarios.</p>
+      </div>
+      <div class="card">
+        <h3>Control por voz</h3>
+        <p>Gestiona tu hogar fácilmente mediante asistentes de voz compatibles.</p>
+      </div>
+      <div class="card">
+        <h3>Seguridad y privacidad</h3>
+        <p>Protección avanzada de datos y control total sobre tu información.</p>
+      </div>
     </div>
   </section>
 
@@ -248,7 +263,7 @@
       </div>
       <div class="card">
         <h3>Fuente de alimentación</h3>
-        <p>Adaptador incluido<br>Consumo 5V / 2A</p>
+        <p>Adaptador incluido<br>Consumo energético 5V / 2A</p>
       </div>
     </div>
   </section>
@@ -260,6 +275,7 @@
   <!-- WHATSAPP -->
   <a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    Contáctanos
   </a>
 
   <script>
