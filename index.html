@@ -5,28 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atelier Du Succéss</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 :root{
-  --beige:#f5f1ea;
-  --white:#ffffff;
-  --red:#c62828;
-  --blue:#1e3a8a;
-  --dark:#1f2937;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --blue:#1f3c88;
+  --red:#c0392b;
+  --beige:#f4f1ea;
+  --dark:#1a1a1a;
 }
 
 body{
-  background:var(--white);
-  color:var(--dark);
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
 }
 
-/* BOTÓN SUPERIOR */
+/* BOTON ABOUT */
 .about-top-btn{
   position:fixed;
   top:20px;
@@ -41,397 +36,340 @@ body{
   font-weight:600;
 }
 
-.about-top-btn:hover{
-  transform:scale(1.05);
-}
-
 /* HERO */
 .hero{
-  padding:120px 10%;
   text-align:center;
+  padding:100px 20px 40px;
 }
 
-.hero h1{
-  font-size:3rem;
-  color:var(--blue);
+.hero img{
+  width:200px;
 }
 
-/* SECCIONES */
+/* PRODUCTOS */
 .section{
-  padding:90px 10%;
+  padding:60px 10%;
 }
 
-.section h2{
-  text-align:center;
-  font-size:2.4rem;
-  color:var(--blue);
-  margin-bottom:40px;
+.products{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  justify-content:center;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-/* CARDS */
 .card{
-  background:var(--beige);
-  padding:30px;
-  border-radius:20px;
+  width:280px;
   text-align:center;
-}
-
-.product-img{
-  width:180px;
-  display:block;
-  margin:0 auto 20px;
+  padding:20px;
+  border:1px solid #eee;
   border-radius:15px;
 }
 
+.product-img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
 .price{
-  font-size:1.3rem;
-  font-weight:600;
-  color:var(--red);
+  font-weight:bold;
   margin:10px 0;
 }
 
 .color-select{
+  padding:6px;
   width:100%;
-  padding:8px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  margin:10px 0 20px;
+  margin-bottom:10px;
 }
 
 .cart-row{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:10px;
+  align-items:center;
 }
 
 .qty-control{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:10px;
 }
 
 .qty-control button{
-  width:32px;
-  height:32px;
-  border:none;
-  background:var(--blue);
-  color:white;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-.qty{
-  font-weight:600;
-  min-width:20px;
-  text-align:center;
+  width:30px;
+  height:30px;
 }
 
 .add-cart{
-  flex:1;
   background:var(--red);
   color:white;
   border:none;
-  padding:10px;
-  border-radius:999px;
+  padding:8px 12px;
   cursor:pointer;
-  font-weight:600;
 }
 
-.add-cart:hover{
-  transform:scale(1.05);
+/* CARRITO ICONO */
+.cart-icon{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:24px;
+  cursor:pointer;
 }
 
 /* MODALES */
 .overlay{
   position:fixed;
   inset:0;
-  background:var(--beige);
+  background:rgba(0,0,0,0.6);
   display:flex;
+  justify-content:center;
   align-items:center;
-  justify-content:center;
-  z-index:3000;
-}
-
-.modal{
-  text-align:center;
-  max-width:600px;
-  width:90%;
-}
-
-.modal-title{
-  font-size:2rem;
-  color:var(--blue);
-  margin-bottom:20px;
-}
-
-.modal-buttons{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.btn-primary{
-  background:var(--red);
-  color:white;
-  padding:15px 30px;
-  border:none;
-  border-radius:999px;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.btn-secondary{
-  background:var(--blue);
-  color:white;
-  padding:15px 30px;
-  border:none;
-  border-radius:999px;
-  font-weight:600;
-  cursor:pointer;
-}
-
-/* CARRITO */
-.cart-floating{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:var(--dark);
-  color:white;
-  padding:15px 20px;
-  border-radius:20px;
-  font-weight:600;
-  cursor:pointer;
   z-index:2000;
 }
 
-/* ABOUT SECTION */
+.modal{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  width:90%;
+  max-width:500px;
+  text-align:center;
+}
+
+.modal img{
+  width:180px;
+  margin:20px auto;
+  display:block;
+}
+
+.modal-buttons button{
+  margin:10px;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+}
+
+/* ABOUT */
 #aboutSection{
   display:none;
   padding:120px 10%;
   text-align:center;
 }
 
-#aboutSection img{
-  width:220px;
-  margin:20px auto;
-  display:block;
-}
-
-.about-socials{
-  margin-top:40px;
+/* REDES */
+.socials-fixed{
+  position:fixed;
+  bottom:20px;
+  left:20px;
   display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
+  gap:15px;
 }
 
-.about-socials a{
-  background:var(--beige);
-  padding:12px 20px;
-  border-radius:999px;
-  text-decoration:none;
+.socials-fixed a{
+  font-size:22px;
   color:var(--dark);
-  font-weight:600;
 }
 
-.about-socials a:hover{
-  background:var(--red);
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
   color:white;
+  padding:10px 15px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.whatsapp img{
+  width:20px;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  margin-top:60px;
 }
 </style>
 </head>
 
 <body>
 
-<button class="about-top-btn" onclick="goToAboutSection()">Acerca de nosotros</button>
+<button class="about-top-btn" onclick="showAbout()">Acerca de nosotros</button>
 
-<!-- MODAL INICIAL -->
+<div class="cart-icon" onclick="openCart()">
+  <i class="fas fa-shopping-cart"></i>
+</div>
+
+<!-- MODAL INICIO -->
 <div class="overlay" id="welcome">
   <div class="modal">
-    <h2 class="modal-title">Atelier Du Succéss</h2>
-    <img src="Atelier_Du_Success.png" style="width:200px; margin:20px auto; display:block;">
+    <h2>Atelier Du Succéss</h2>
+    <img src="Atelier_Du_Success.png">
     <div class="modal-buttons">
-      <button class="btn-primary" onclick="openFiguras()">Ver más</button>
-      <button class="btn-secondary" onclick="openAbout()">Conócenos</button>
+      <button onclick="closeWelcome()">Entrar</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL CONOCENOS -->
-<div class="overlay" id="aboutModal" style="display:none;">
-  <div class="modal">
-    <h2 class="modal-title">Nuestra Esencia</h2>
-    <p>
-      Somos una tienda de tecnología enfocada en soluciones inteligentes
-      que combinan innovación, funcionalidad y diseño.
-      Creamos productos elegantes pensados para mejorar la vida diaria.
-    </p>
-    <br>
-    <button class="btn-secondary" onclick="closeAbout()">Cerrar</button>
-  </div>
+<div class="hero">
+  <img src="Atelier_Du_Success.png">
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Lumière</h1>
-</section>
-
-<!-- CARACTERISTICAS -->
 <section class="section">
-  <h2>Características</h2>
-  <div class="grid">
-    <div class="card"><h3>Compatibilidad amplia</h3><p>Funciona con múltiples ecosistemas inteligentes.</p></div>
-    <div class="card"><h3>Automatización inteligente</h3><p>Aprende hábitos para optimizar rutinas.</p></div>
-    <div class="card"><h3>Control por voz</h3><p>Compatible con asistentes virtuales.</p></div>
-    <div class="card"><h3>Seguridad</h3><p>Protección avanzada de datos.</p></div>
+  <div class="products">
+
+    <!-- FLOR DE LOTO -->
+    <div class="card">
+      <img src="flor.png" class="product-img">
+      <h3>Flor de loto</h3>
+      <div class="price">S/. 250</div>
+      <select class="color-select">
+        <option>Blanco</option>
+        <option>Dorado</option>
+      </select>
+      <div class="cart-row">
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">-</button>
+          <span class="qty">1</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+        <button class="add-cart" onclick="addToCart(250,this,'Flor de loto')">Agregar</button>
+      </div>
+    </div>
+
+    <!-- SATURNO -->
+    <div class="card">
+      <img src="saturno.png" class="product-img">
+      <h3>Saturno</h3>
+      <div class="price">S/. 280</div>
+      <select class="color-select">
+        <option>Negro</option>
+        <option>Plateado</option>
+      </select>
+      <div class="cart-row">
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">-</button>
+          <span class="qty">1</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+        <button class="add-cart" onclick="addToCart(280,this,'Saturno')">Agregar</button>
+      </div>
+    </div>
+
+    <!-- GATO -->
+    <div class="card">
+      <img src="Captura de pantalla 2026-02-15 204522.png" class="product-img">
+      <h3>Gato</h3>
+      <div class="price">S/. 320</div>
+      <select class="color-select">
+        <option>Blanco</option>
+        <option>Negro</option>
+      </select>
+      <div class="cart-row">
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">-</button>
+          <span class="qty">1</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+        <button class="add-cart" onclick="addToCart(320,this,'Gato')">Agregar</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ESPECIFICACIONES -->
-<section class="section">
-  <h2>Especificaciones Técnicas</h2>
-  <div class="grid">
-    <div class="card"><h3>Conectividad</h3><p>Wi-Fi 6, Bluetooth 5.2, Zigbee, Z-Wave</p></div>
-    <div class="card"><h3>Voltaje</h3><p>110V – 220V</p></div>
-  </div>
-</section>
-
-<!-- FIGURAS -->
-<section class="section" id="figurasSection" style="display:none;">
-<h2>Figuras</h2>
-<div class="grid">
-
-<div class="card">
-<img src="flor_de_loto.jpeg" class="product-img">
-<h3>Flor de Loto</h3>
-<div class="price">S/. 330</div>
-<select class="color-select">
-<option>Blanco</option><option>Negro</option><option>Dorado</option>
-</select>
-<div class="cart-row">
-<div class="qty-control">
-<button onclick="changeQty(this,-1)">-</button>
-<span class="qty">1</span>
-<button onclick="changeQty(this,1)">+</button>
-</div>
-<button class="add-cart" onclick="addToCart(330,this)">Agregar</button>
-</div>
-</div>
-
-<div class="card">
-<img src="saturno.jpeg" class="product-img">
-<h3>Saturno</h3>
-<div class="price">S/. 350</div>
-<select class="color-select">
-<option>Blanco</option><option>Negro</option><option>Plateado</option>
-</select>
-<div class="cart-row">
-<div class="qty-control">
-<button onclick="changeQty(this,-1)">-</button>
-<span class="qty">1</span>
-<button onclick="changeQty(this,1)">+</button>
-</div>
-<button class="add-cart" onclick="addToCart(350,this)">Agregar</button>
-</div>
-</div>
-
-<div class="card">
-<img src="Captura de pantalla 2026-02-15 204522.png" class="product-img">
-<h3>Gato</h3>
-<div class="price">S/. 320</div>
-<select class="color-select">
-<option>Blanco</option><option>Negro</option><option>Gris</option>
-</select>
-<div class="cart-row">
-<div class="qty-control">
-<button onclick="changeQty(this,-1)">-</button>
-<span class="qty">1</span>
-<button onclick="changeQty(this,1)">+</button>
-</div>
-<button class="add-cart" onclick="addToCart(320,this)">Agregar</button>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section id="aboutSection">
-<h2>Acerca de Nosotros</h2>
-<img src="Atelier_Du_Success.png">
-<p>
-Somos una tienda de tecnología enfocada en soluciones inteligentes
-que combinan innovación, funcionalidad y diseño para elevar cada espacio.
-</p>
-<div class="about-socials">
-<a href="#">TikTok</a>
-<a href="#">Instagram</a>
-<a href="#">Facebook</a>
-<a href="#">YouTube</a>
-</div>
-<br>
-<button class="btn-secondary" onclick="backToHome()">Volver</button>
+  <h2>Acerca de Nosotros</h2>
+  <img src="Atelier_Du_Success.png">
+  <p>
+    Somos una tienda enfocada en innovación, diseño y elegancia.
+    Creamos productos modernos que elevan cualquier espacio.
+  </p>
+  <button onclick="hideAbout()">Volver</button>
 </section>
-
-<!-- CARRITO -->
-<div class="cart-floating" onclick="openCart()">🛒 Carrito: S/. <span id="total">0</span></div>
 
 <!-- MODAL CARRITO -->
 <div class="overlay" id="cartModal" style="display:none;">
-<div class="modal">
-<h2 class="modal-title">Tu Carrito</h2>
-<div id="cartItems"></div>
-<h3>Total: S/. <span id="cartTotal">0</span></h3>
-<br>
-<button class="btn-secondary" onclick="closeCart()">Cerrar</button>
-<button class="btn-primary" onclick="clearCart()">Vaciar</button>
+  <div class="modal">
+    <h3>Tu carrito</h3>
+    <div id="cartItems"></div>
+    <p id="total"></p>
+    <button onclick="closeCart()">Cerrar</button>
+  </div>
 </div>
+
+<!-- REDES -->
+<div class="socials-fixed">
+  <a href="https://vt.tiktok.com/ZSauS3yTN/" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com/p/DTYs-PhDDL1/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://web.facebook.com/groups/1776758696401355/permalink/2128189347924953/?mibextid=wwXIfr&rdid=RjwcIqBJCOGzRf3L#/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com/watch?v=e2nlm55zKwg" target="_blank"><i class="fab fa-youtube"></i></a>
 </div>
+
+<footer>© 2026 Atelier Du Succéss · EMlitz</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  Contáctanos
+</a>
 
 <script>
 let cart=[];
-let total=0;
 
-function openFiguras(){document.getElementById("welcome").style.display="none";document.getElementById("figurasSection").style.display="block";}
-function openAbout(){document.getElementById("aboutModal").style.display="flex";}
-function closeAbout(){document.getElementById("aboutModal").style.display="none";}
-function goToAboutSection(){document.querySelectorAll("section").forEach(s=>s.style.display="none");document.getElementById("aboutSection").style.display="block";}
-function backToHome(){document.querySelectorAll("section").forEach(s=>s.style.display="block");document.getElementById("aboutSection").style.display="none";}
-function changeQty(btn,a){let q=btn.parentElement.querySelector(".qty");let v=parseInt(q.innerText);v+=a;if(v<1)v=1;q.innerText=v;}
-function addToCart(price,btn){
-let card=btn.closest(".card");
-let name=card.querySelector("h3").innerText;
-let color=card.querySelector(".color-select").value;
-let qty=parseInt(card.querySelector(".qty").innerText);
-cart.push({name,color,qty,price});
-total+=price*qty;
-document.getElementById("total").innerText=total;
+function closeWelcome(){
+  document.getElementById("welcome").style.display="none";
 }
-function openCart(){renderCart();document.getElementById("cartModal").style.display="flex";}
-function closeCart(){document.getElementById("cartModal").style.display="none";}
-function renderCart(){
-let c=document.getElementById("cartItems");
-c.innerHTML="";
-if(cart.length===0){c.innerHTML="<p>Tu carrito está vacío.</p>";document.getElementById("cartTotal").innerText=0;return;}
-cart.forEach(i=>{
-c.innerHTML+=`<div style="margin-bottom:10px;border-bottom:1px solid #ccc;padding:5px;">
-<strong>${i.name}</strong><br>
-Color: ${i.color}<br>
-Cantidad: ${i.qty}<br>
-Subtotal: S/. ${i.price*i.qty}
-</div>`;
-});
-document.getElementById("cartTotal").innerText=total;
+
+function changeQty(btn,val){
+  let qtySpan=btn.parentElement.querySelector(".qty");
+  let qty=parseInt(qtySpan.innerText);
+  qty+=val;
+  if(qty<1) qty=1;
+  qtySpan.innerText=qty;
 }
-function clearCart(){cart=[];total=0;document.getElementById("total").innerText=0;renderCart();}
+
+function addToCart(price,btn,name){
+  let card=btn.closest(".card");
+  let qty=parseInt(card.querySelector(".qty").innerText);
+  cart.push({name,price,qty});
+}
+
+function openCart(){
+  let modal=document.getElementById("cartModal");
+  let items=document.getElementById("cartItems");
+  let total=0;
+  items.innerHTML="";
+  cart.forEach(item=>{
+    items.innerHTML+=`<p>${item.name} x${item.qty} - S/. ${item.price*item.qty}</p>`;
+    total+=item.price*item.qty;
+  });
+  document.getElementById("total").innerText="Total: S/. "+total;
+  modal.style.display="flex";
+}
+
+function closeCart(){
+  document.getElementById("cartModal").style.display="none";
+}
+
+function showAbout(){
+  document.querySelector(".section").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.getElementById("aboutSection").style.display="block";
+}
+
+function hideAbout(){
+  document.querySelector(".section").style.display="block";
+  document.querySelector(".hero").style.display="block";
+  document.getElementById("aboutSection").style.display="none";
+}
 </script>
 
 </body>
