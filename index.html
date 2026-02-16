@@ -26,9 +26,28 @@ body{
   color:var(--dark);
 }
 
+/* BOTÓN SUPERIOR */
+.about-top-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  background:var(--blue);
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  z-index:1500;
+  font-weight:600;
+}
+
+.about-top-btn:hover{
+  transform:scale(1.05);
+}
+
 /* HERO */
 .hero{
-  padding:100px 10%;
+  padding:120px 10%;
   text-align:center;
 }
 
@@ -37,32 +56,25 @@ body{
   color:var(--blue);
 }
 
-/* SECTION */
+/* SECCIONES */
 .section{
-  padding:80px 10%;
+  padding:90px 10%;
 }
 
 .section h2{
   text-align:center;
-  font-size:2.5rem;
+  font-size:2.4rem;
   color:var(--blue);
-  margin-bottom:20px;
+  margin-bottom:40px;
 }
 
-.section p{
-  text-align:center;
-  max-width:800px;
-  margin:0 auto 50px;
-}
-
-/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
 
-/* PRODUCT CARD */
+/* CARDS */
 .card{
   background:var(--beige);
   padding:30px;
@@ -136,7 +148,7 @@ body{
   transform:scale(1.05);
 }
 
-/* MODAL */
+/* MODALES */
 .overlay{
   position:fixed;
   inset:0;
@@ -144,7 +156,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:3000;
 }
 
 .modal{
@@ -166,22 +178,24 @@ body{
   flex-wrap:wrap;
 }
 
-.modal button{
-  padding:15px 30px;
-  border-radius:999px;
-  border:none;
-  font-weight:600;
-  cursor:pointer;
-}
-
 .btn-primary{
   background:var(--red);
   color:white;
+  padding:15px 30px;
+  border:none;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
 }
 
 .btn-secondary{
   background:var(--blue);
   color:white;
+  padding:15px 30px;
+  border:none;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
 }
 
 /* CARRITO */
@@ -194,17 +208,56 @@ body{
   padding:15px 20px;
   border-radius:20px;
   font-weight:600;
-  z-index:3000;
+  cursor:pointer;
+  z-index:2000;
+}
+
+/* ABOUT SECTION */
+#aboutSection{
+  display:none;
+  padding:120px 10%;
+  text-align:center;
+}
+
+#aboutSection img{
+  width:220px;
+  margin:20px auto;
+  display:block;
+}
+
+.about-socials{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.about-socials a{
+  background:var(--beige);
+  padding:12px 20px;
+  border-radius:999px;
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:600;
+}
+
+.about-socials a:hover{
+  background:var(--red);
+  color:white;
 }
 </style>
 </head>
 
 <body>
 
+<button class="about-top-btn" onclick="goToAboutSection()">Acerca de nosotros</button>
+
 <!-- MODAL INICIAL -->
 <div class="overlay" id="welcome">
   <div class="modal">
-    <h2 class="modal-title">Bienvenidos a Atelier Du Succéss</h2>
+    <h2 class="modal-title">Atelier Du Succéss</h2>
+    <img src="Atelier_Du_Success.png" style="width:200px; margin:20px auto; display:block;">
     <div class="modal-buttons">
       <button class="btn-primary" onclick="openFiguras()">Ver más</button>
       <button class="btn-secondary" onclick="openAbout()">Conócenos</button>
@@ -217,9 +270,9 @@ body{
   <div class="modal">
     <h2 class="modal-title">Nuestra Esencia</h2>
     <p>
-      Somos una tienda de tecnología enfocada en soluciones inteligentes que combinan
-      innovación, funcionalidad y diseño, pensadas para mejorar la vida diaria.
-      Creamos productos elegantes que elevan el estilo de cada espacio.
+      Somos una tienda de tecnología enfocada en soluciones inteligentes
+      que combinan innovación, funcionalidad y diseño.
+      Creamos productos elegantes pensados para mejorar la vida diaria.
     </p>
     <br>
     <button class="btn-secondary" onclick="closeAbout()">Cerrar</button>
@@ -231,120 +284,154 @@ body{
   <h1>Lumière</h1>
 </section>
 
-<!-- FIGURAS -->
-<section class="section" id="figurasSection" style="display:none;">
-  <h2>Figuras</h2>
-  <p>
-    Figuras decorativas intercambiables en la parte superior,
-    modificando su apariencia fácilmente para adaptarlo a diferentes
-    estilos y preferencias personales.
-  </p>
-
+<!-- CARACTERISTICAS -->
+<section class="section">
+  <h2>Características</h2>
   <div class="grid">
-
-    <!-- FLOR DE LOTO -->
-    <div class="card">
-      <img src="flor_de_loto.jpeg" class="product-img">
-      <h3>Flor de Loto</h3>
-      <div class="price">S/. 330</div>
-
-      <select class="color-select">
-        <option>Blanco</option>
-        <option>Negro</option>
-        <option>Dorado</option>
-      </select>
-
-      <div class="cart-row">
-        <div class="qty-control">
-          <button onclick="changeQty(this,-1)">-</button>
-          <span class="qty">1</span>
-          <button onclick="changeQty(this,1)">+</button>
-        </div>
-        <button class="add-cart" onclick="addToCart(330,this)">Agregar</button>
-      </div>
-    </div>
-
-    <!-- SATURNO -->
-    <div class="card">
-      <img src="saturno.jpeg" class="product-img">
-      <h3>Saturno</h3>
-      <div class="price">S/. 350</div>
-
-      <select class="color-select">
-        <option>Blanco</option>
-        <option>Negro</option>
-        <option>Plateado</option>
-      </select>
-
-      <div class="cart-row">
-        <div class="qty-control">
-          <button onclick="changeQty(this,-1)">-</button>
-          <span class="qty">1</span>
-          <button onclick="changeQty(this,1)">+</button>
-        </div>
-        <button class="add-cart" onclick="addToCart(350,this)">Agregar</button>
-      </div>
-    </div>
-
-    <!-- GATO -->
-    <div class="card">
-      <img src="gato.jpeg" class="product-img">
-      <h3>Gato</h3>
-      <div class="price">S/. 320</div>
-
-      <select class="color-select">
-        <option>Blanco</option>
-        <option>Negro</option>
-        <option>Gris</option>
-      </select>
-
-      <div class="cart-row">
-        <div class="qty-control">
-          <button onclick="changeQty(this,-1)">-</button>
-          <span class="qty">1</span>
-          <button onclick="changeQty(this,1)">+</button>
-        </div>
-        <button class="add-cart" onclick="addToCart(320,this)">Agregar</button>
-      </div>
-    </div>
-
+    <div class="card"><h3>Compatibilidad amplia</h3><p>Funciona con múltiples ecosistemas inteligentes.</p></div>
+    <div class="card"><h3>Automatización inteligente</h3><p>Aprende hábitos para optimizar rutinas.</p></div>
+    <div class="card"><h3>Control por voz</h3><p>Compatible con asistentes virtuales.</p></div>
+    <div class="card"><h3>Seguridad</h3><p>Protección avanzada de datos.</p></div>
   </div>
 </section>
 
+<!-- ESPECIFICACIONES -->
+<section class="section">
+  <h2>Especificaciones Técnicas</h2>
+  <div class="grid">
+    <div class="card"><h3>Conectividad</h3><p>Wi-Fi 6, Bluetooth 5.2, Zigbee, Z-Wave</p></div>
+    <div class="card"><h3>Voltaje</h3><p>110V – 220V</p></div>
+  </div>
+</section>
+
+<!-- FIGURAS -->
+<section class="section" id="figurasSection" style="display:none;">
+<h2>Figuras</h2>
+<div class="grid">
+
+<div class="card">
+<img src="flor_de_loto.jpeg" class="product-img">
+<h3>Flor de Loto</h3>
+<div class="price">S/. 330</div>
+<select class="color-select">
+<option>Blanco</option><option>Negro</option><option>Dorado</option>
+</select>
+<div class="cart-row">
+<div class="qty-control">
+<button onclick="changeQty(this,-1)">-</button>
+<span class="qty">1</span>
+<button onclick="changeQty(this,1)">+</button>
+</div>
+<button class="add-cart" onclick="addToCart(330,this)">Agregar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="saturno.jpeg" class="product-img">
+<h3>Saturno</h3>
+<div class="price">S/. 350</div>
+<select class="color-select">
+<option>Blanco</option><option>Negro</option><option>Plateado</option>
+</select>
+<div class="cart-row">
+<div class="qty-control">
+<button onclick="changeQty(this,-1)">-</button>
+<span class="qty">1</span>
+<button onclick="changeQty(this,1)">+</button>
+</div>
+<button class="add-cart" onclick="addToCart(350,this)">Agregar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="Captura de pantalla 2026-02-15 204522.png" class="product-img">
+<h3>Gato</h3>
+<div class="price">S/. 320</div>
+<select class="color-select">
+<option>Blanco</option><option>Negro</option><option>Gris</option>
+</select>
+<div class="cart-row">
+<div class="qty-control">
+<button onclick="changeQty(this,-1)">-</button>
+<span class="qty">1</span>
+<button onclick="changeQty(this,1)">+</button>
+</div>
+<button class="add-cart" onclick="addToCart(320,this)">Agregar</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="aboutSection">
+<h2>Acerca de Nosotros</h2>
+<img src="Atelier_Du_Success.png">
+<p>
+Somos una tienda de tecnología enfocada en soluciones inteligentes
+que combinan innovación, funcionalidad y diseño para elevar cada espacio.
+</p>
+<div class="about-socials">
+<a href="#">TikTok</a>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">YouTube</a>
+</div>
+<br>
+<button class="btn-secondary" onclick="backToHome()">Volver</button>
+</section>
+
 <!-- CARRITO -->
-<div class="cart-floating" id="cartBox">
-  Carrito: S/. <span id="total">0</span>
+<div class="cart-floating" onclick="openCart()">🛒 Carrito: S/. <span id="total">0</span></div>
+
+<!-- MODAL CARRITO -->
+<div class="overlay" id="cartModal" style="display:none;">
+<div class="modal">
+<h2 class="modal-title">Tu Carrito</h2>
+<div id="cartItems"></div>
+<h3>Total: S/. <span id="cartTotal">0</span></h3>
+<br>
+<button class="btn-secondary" onclick="closeCart()">Cerrar</button>
+<button class="btn-primary" onclick="clearCart()">Vaciar</button>
+</div>
 </div>
 
 <script>
-let total = 0;
+let cart=[];
+let total=0;
 
-function openFiguras(){
-  document.getElementById("welcome").style.display="none";
-  document.getElementById("figurasSection").style.display="block";
-}
-
-function openAbout(){
-  document.getElementById("aboutModal").style.display="flex";
-}
-
-function closeAbout(){
-  document.getElementById("aboutModal").style.display="none";
-}
-
-function changeQty(btn,amount){
-  const qtyElement = btn.parentElement.querySelector(".qty");
-  let qty = parseInt(qtyElement.innerText);
-  qty += amount;
-  if(qty < 1) qty = 1;
-  qtyElement.innerText = qty;
-}
-
+function openFiguras(){document.getElementById("welcome").style.display="none";document.getElementById("figurasSection").style.display="block";}
+function openAbout(){document.getElementById("aboutModal").style.display="flex";}
+function closeAbout(){document.getElementById("aboutModal").style.display="none";}
+function goToAboutSection(){document.querySelectorAll("section").forEach(s=>s.style.display="none");document.getElementById("aboutSection").style.display="block";}
+function backToHome(){document.querySelectorAll("section").forEach(s=>s.style.display="block");document.getElementById("aboutSection").style.display="none";}
+function changeQty(btn,a){let q=btn.parentElement.querySelector(".qty");let v=parseInt(q.innerText);v+=a;if(v<1)v=1;q.innerText=v;}
 function addToCart(price,btn){
-  const qty = parseInt(btn.parentElement.querySelector(".qty").innerText);
-  total += price * qty;
-  document.getElementById("total").innerText = total;
+let card=btn.closest(".card");
+let name=card.querySelector("h3").innerText;
+let color=card.querySelector(".color-select").value;
+let qty=parseInt(card.querySelector(".qty").innerText);
+cart.push({name,color,qty,price});
+total+=price*qty;
+document.getElementById("total").innerText=total;
 }
+function openCart(){renderCart();document.getElementById("cartModal").style.display="flex";}
+function closeCart(){document.getElementById("cartModal").style.display="none";}
+function renderCart(){
+let c=document.getElementById("cartItems");
+c.innerHTML="";
+if(cart.length===0){c.innerHTML="<p>Tu carrito está vacío.</p>";document.getElementById("cartTotal").innerText=0;return;}
+cart.forEach(i=>{
+c.innerHTML+=`<div style="margin-bottom:10px;border-bottom:1px solid #ccc;padding:5px;">
+<strong>${i.name}</strong><br>
+Color: ${i.color}<br>
+Cantidad: ${i.qty}<br>
+Subtotal: S/. ${i.price*i.qty}
+</div>`;
+});
+document.getElementById("cartTotal").innerText=total;
+}
+function clearCart(){cart=[];total=0;document.getElementById("total").innerText=0;renderCart();}
 </script>
 
 </body>
