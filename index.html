@@ -21,7 +21,6 @@ body{
   background:#fff;
 }
 
-/* BOTON ABOUT */
 .about-top-btn{
   position:fixed;
   top:20px;
@@ -36,7 +35,6 @@ body{
   font-weight:600;
 }
 
-/* HERO */
 .hero{
   text-align:center;
   padding:100px 20px 40px;
@@ -46,7 +44,6 @@ body{
   width:200px;
 }
 
-/* PRODUCTOS */
 .section{
   padding:60px 10%;
 }
@@ -108,7 +105,6 @@ body{
   cursor:pointer;
 }
 
-/* CARRITO ICONO */
 .cart-icon{
   position:fixed;
   top:20px;
@@ -117,7 +113,6 @@ body{
   cursor:pointer;
 }
 
-/* MODALES */
 .overlay{
   position:fixed;
   inset:0;
@@ -150,14 +145,12 @@ body{
   cursor:pointer;
 }
 
-/* ABOUT */
 #aboutSection{
   display:none;
   padding:120px 10%;
   text-align:center;
 }
 
-/* REDES */
 .socials-fixed{
   position:fixed;
   bottom:20px;
@@ -171,7 +164,6 @@ body{
   color:var(--dark);
 }
 
-/* WHATSAPP */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -224,7 +216,6 @@ footer{
 <section class="section">
   <div class="products">
 
-    <!-- FLOR DE LOTO -->
     <div class="card">
       <img src="flor.png" class="product-img">
       <h3>Flor de loto</h3>
@@ -243,7 +234,6 @@ footer{
       </div>
     </div>
 
-    <!-- SATURNO -->
     <div class="card">
       <img src="saturno.png" class="product-img">
       <h3>Saturno</h3>
@@ -262,7 +252,6 @@ footer{
       </div>
     </div>
 
-    <!-- GATO -->
     <div class="card">
       <img src="Captura de pantalla 2026-02-15 204522.png" class="product-img">
       <h3>Gato</h3>
@@ -284,18 +273,44 @@ footer{
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT MODAL -->
 <section id="aboutSection">
   <h2>Acerca de Nosotros</h2>
   <img src="Atelier_Du_Success.png">
-  <p>
+  <p style="max-width:700px; margin:0 auto 30px; line-height:1.7;">
     Somos una tienda enfocada en innovación, diseño y elegancia.
     Creamos productos modernos que elevan cualquier espacio.
   </p>
+
+  <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:30px;">
+
+    <a href="https://wa.me/51933548349" target="_blank"
+       style="background:#25D366; color:white; padding:12px 20px; border-radius:999px; text-decoration:none;">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <a href="https://web.facebook.com/groups/1776758696401355/permalink/2128189347924953/?mibextid=wwXIfr&rdid=RjwcIqBJCOGzRf3L#/"
+       target="_blank"
+       style="background:#1877F2; color:white; padding:12px 20px; border-radius:999px; text-decoration:none;">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+
+    <a href="https://vt.tiktok.com/ZSauS3yTN/" target="_blank"
+       style="background:#000; color:white; padding:12px 20px; border-radius:999px; text-decoration:none;">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
+
+    <a href="https://www.instagram.com/p/DTYs-PhDDL1/" target="_blank"
+       style="background:#E1306C; color:white; padding:12px 20px; border-radius:999px; text-decoration:none;">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+  </div>
+
   <button onclick="hideAbout()">Volver</button>
 </section>
 
-<!-- MODAL CARRITO -->
+<!-- CARRITO MODAL -->
 <div class="overlay" id="cartModal" style="display:none;">
   <div class="modal">
     <h3>Tu carrito</h3>
@@ -315,7 +330,6 @@ footer{
 
 <footer>© 2026 Atelier Du Succéss · EMlitz</footer>
 
-<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/51933548349" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   Contáctanos
